@@ -10,7 +10,7 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'account.User'
 MESSAGE_LEVEL = messages_constants.DEBUG
 
-django_heroku.settings(locals())
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -119,3 +119,5 @@ DEFAULT_FROM_MAIL = 'has_everytime@naver.com'
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
