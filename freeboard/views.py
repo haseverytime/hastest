@@ -56,7 +56,7 @@ def new_comment(request, post_id) :
 
 def plus_name(request, post_id, newname) :
     post_ = freeB(request.POST)
-    post_ = get_object_or_404(questionB, pk=post_id)
+    post_ = get_object_or_404(freeB, pk=post_id)
     if newname not in post_.nameTOname : 
         baseTable = post_.nameTOname
         post_.nameTOname = baseTable + newname + "|" + str(post_.nameCount+1)+ "/"
@@ -69,7 +69,7 @@ def plus_name(request, post_id, newname) :
 
 def find_name(request, post_id, nametofind) :
     post_ = freeB(request.POST)
-    post_ = get_object_or_404(questionB, pk=post_id)
+    post_ = get_object_or_404(freeB, pk=post_id)
 
     nameidx =  str(post_.nameTOname).find(nametofind)
     if nameidx == -1 :
