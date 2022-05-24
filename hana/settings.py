@@ -5,7 +5,8 @@ from django.contrib.messages import constants as messages_constants
 #test
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(pu!y)*rq&a^+o246ql))_mq5owpn+=exsqk*1m-id%7&5q4!6'
-DEBUG = False
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = True
 ALLOWED_HOSTS = ['hastimetest.herokuapp.com','127.0.0.1']
 AUTH_USER_MODEL = 'account.User'
 MESSAGE_LEVEL = messages_constants.DEBUG
@@ -121,3 +122,4 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 django_heroku.settings(locals())
+SITE_ID=1
